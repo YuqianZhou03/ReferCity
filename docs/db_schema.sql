@@ -1,11 +1,14 @@
 -- 1. 用户表 (核心：存储港校身份核验状态)
 CREATE TABLE `users` (
-    `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
-    `username` VARCHAR(50) NOT NULL,
-    `email` VARCHAR(100) UNIQUE, -- 用于校友邮箱验证
-    `is_verified` BOOLEAN DEFAULT FALSE,
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+    `openid` VARCHAR(128) NOT NULL COMMENT '微信用户唯一标识',
+    `email_prefix` VARCHAR(64) DEFAULT NULL COMMENT 'CityU 邮箱前缀 (如 yuqianzhou)',
+    `full_email` VARCHAR(128) DEFAULT NULL COMMENT '完整 CityU 邮箱地址',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uk_openid` (`openid`),
+    UNIQUE KEY `uk_full_email` (`full_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- 2. 面经知识库 (核心：RAG 检索的数据源)
 CREATE TABLE `interview_experiences` (
