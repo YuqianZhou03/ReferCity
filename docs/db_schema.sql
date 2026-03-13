@@ -34,3 +34,13 @@ CREATE TABLE `ai_analysis_reports` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
 );
+
+-- 4. 现有职位表
+CREATE TABLE `jobs` (
+                        `id` INT AUTO_INCREMENT PRIMARY KEY,
+                        `title` VARCHAR(100) NOT NULL COMMENT '职位名称',
+                        `company` VARCHAR(100) NOT NULL COMMENT '公司名称',
+                        `salary` VARCHAR(50) COMMENT '薪资范围',
+                        `description` TEXT COMMENT '职位描述',
+                        `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
