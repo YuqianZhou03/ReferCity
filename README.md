@@ -22,22 +22,20 @@ ReferCity 采用典型的**工业级 AI 应用架构**，充分体现 BDA 对数
 
 - **前端 (Frontend)**: 微信小程序 (提供极致的轻量化体验)。
 - **后端 (Backend)**: Java Spring Boot 3.x + MyBatis Plus (核心业务逻辑)。
-- **AI 引擎 (AI Engine)**: DeepSeek-V3 API (逻辑推理) + LangChain4j (数据编排)。
+- **AI 引擎 (AI Engine)**: DeepSeek-V3 API (逻辑推理)。
 - **数据层 (Data Layer)**: 
   - **MySQL**: 存储用户信息、职位数据及内推状态。
-  - **Vector Storage**: 存储结构化后的面经嵌入向量，支持语义搜索。
-  - **Redis**: 缓存 AI 报告与热点职位，提升响应速度。
 
 ---
 
 ## 📈 3. BDA 特色功能：AI 一对一面试引导 (Core Feature)
 这是 ReferCity 的核心壁垒。不同于普通产品，我们实现了 **“简历-岗位-面经”** 的三向对齐：
 
-1. **结构化提取**: 利用 LLM 将用户上传的 PDF 简历转化为结构化特征向量。
+1. **结构化提取**: 利用 LLM 将用户上传的 PDF 简历转化为结构化特数据。
 2. **多维评估模型**: 
    $$Match\_Score = \alpha \cdot Skills + \beta \cdot Experience + \gamma \cdot Business\_Sense$$
    其中 $\alpha, \beta, \gamma$ 权重根据不同职能岗位（PM/DA/SDE）动态调整。
-3. **针对性预演**: 从面经库中检索出该岗位最近 3 个月的 Top 5 必考点，并让 AI 生成模拟提问。
+3. **针对性预演**: 从面经库中检索出该岗位的最新信息，并让 AI 生成模拟提问。
 
 ---
 
@@ -45,17 +43,18 @@ ReferCity 采用典型的**工业级 AI 应用架构**，充分体现 BDA 对数
 
 ### 📍 第一阶段：产品定义与数据建模 (Ongoing)
 - [x] **品牌升级**: 确立 **ReferCity** 品牌标识与视觉规范。
-- [ ] **需求工程**: 编写 `docs/PRD.md`，定义 MVP 版本功能边界。
-- [ ] **提示词工程**: 设计并测试针对 BDA 场景的 **"AI Interviewer" System Prompt**。
+- [x] **需求工程**: 编写 `docs/PRD.md`，定义 MVP 版本功能边界。
+- [x] **提示词工程**: 设计并测试针对 BDA 场景的 **"AI Interviewer" System Prompt**。
 
 ### 📍 第二阶段：微服务骨架与 AI 链路接入
-- [ ] 搭建 Java 核心服务，集成 DeepSeek API。
-- [ ] 实现基于 PDF 文本提取的简历解析器。
-- [ ] 建立初步的面经知识库 (RAG 基础版)。
+- [x] 搭建 Java 核心服务，集成 DeepSeek API。
+- [x] 实现基于 PDF 文本提取的简历解析器。
+- [x] 建立初步的面经知识库。
+- [x] 完善 Resume等 实体类，基于 MyBatis Plus 实现更复杂的 email_prefix 联表查询逻辑。
 
 ### 📍 第三阶段：数据分析与增长实验
-- [ ] **面试雷达**: 开发基于 Python 的面试趋势可视化组件。
-- [ ] **信用分体系**: 设计校友内推激励模型。
+- [x] **面试雷达**: 开发基于 Python 的面试趋势可视化组件。
+- [x] **流式动态效果**：报告流式渲染: 优化前端小程序，实现 AI 匹配结果的“逐字加载”与“数字跳动”动画。
 
 ---
 
