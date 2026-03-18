@@ -23,9 +23,9 @@ ReferCity 采用典型的**工业级 AI 应用架构**，充分体现 BDA 对数
 - **前端 (Frontend)**: 微信小程序 (提供极致的轻量化体验)。
 - **后端 (Backend)**: Java Spring Boot 3.x + MyBatis Plus (核心业务逻辑)。
 - **AI 引擎 (AI Engine)**: DeepSeek-V3 API (逻辑推理)。
-- **数据层 (Data Layer)**: 
+- **数据层 (Data Layer)**:
   - **MySQL**: 存储用户信息、职位数据及内推状态。
-
+  - **Vector Storage**: 存储结构化后的面经嵌入向量，支持语义搜索。
 ---
 
 ## 🚀 3. ReferCity 特色功能：AI 深度职场对标 (Core Features)
