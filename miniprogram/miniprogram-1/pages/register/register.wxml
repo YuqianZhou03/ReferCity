@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="logo-section">
+    <view class="brand-logo">RC</view>
+    <text class="brand-name">ReferCity</text>
+    <text class="brand-tagline">校友职场内推与 AI 面经平台</text>
+  </view>
+
+  <view class="form-card">
+    <view class="input-group">
+      <text class="label">校友邮箱认证</text>
+      <view class="input-wrapper">
+        <input class="email-input" placeholder="请输入前缀" bindinput="handleEmailInput" />
+        <text class="email-suffix">@my.cityu.edu.hk</text>
+      </view>
+    </view>
+
+    <button class="login-btn" bindtap="handleRegister">
+      微信一键注册
+    </button>
+  </view>
+
+  <view class="footer-hint">
+    仅限校友身份加入，共建职场生态
+  </view>
+</view>

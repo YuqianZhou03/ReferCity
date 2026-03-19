@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/jobDetail/jobDetail",
+    "pages/resumeEdit/resumeEdit",
+    "pages/register/register",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#800000",
+    "navigationBarTitleText": "ReferCity",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

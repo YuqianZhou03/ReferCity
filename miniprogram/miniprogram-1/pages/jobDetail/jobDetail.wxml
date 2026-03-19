@@ -1,0 +1,99 @@
+<view class="container">
+  <view class="job-main-card">
+    <view class="title-bar">
+      <text class="job-title">{{job.title}}</text>
+    </view>
+
+    <view class="company-bar">
+      <image class="company-logo" src="https://img.icons8.com/ios-glyphs/60/666666/company.png"></image>
+      <text class="company-name">{{job.company}}</text>
+      <text class="salary">{{job.salary}}</text>
+    </view>
+
+    <view class="tags-row">
+      <view class="tag-refer">
+        <image class="mini-icon" mode="aspectFit" src="https://img.icons8.com/ios-glyphs/60/ffffff/graduation-cap.png"></image>
+        <text>城大内推</text>
+      </view>
+      <view class="tag-status">HC 急缺</view>
+    </view>
+  </view>
+
+  <view class="section-card description-section">
+    <view class="section-header">
+      <image class="section-icon" src="https://img.icons8.com/ios-glyphs/60/800000/briefcase.png"></image>
+      <text class="section-title">岗位描述</text>
+    </view>
+    <text class="description-content">{{job.fullDescription}}</text>
+
+    <view class="section-header" style="margin-top: 30rpx;">
+      <image class="section-icon" src="https://img.icons8.com/ios-glyphs/60/800000/checklist.png"></image>
+      <text class="section-title">任职要求</text>
+    </view>
+    <text class="description-content">{{job.requirement}}</text>
+  </view>
+
+  <view class="ai-report-wrapper {{aiResult ? 'active' : ''}}">
+
+    <view class="ai-idle-card" wx:if="{{!aiResult}}" bindtap="{{!loading ? 'goToResumeInput' : ''}}">
+      <image class="ai-icon-large {{loading ? 'spin' : (hasResume ? 'resume-ready' : '')}}" 
+             src="{{loading ? 'https://img.icons8.com/ios-filled/100/800000/sparkling.png' : (hasResume ? 'https://img.icons8.com/fluent/96/000000/checked-checkbox.png' : 'https://img.icons8.com/ios-glyphs/90/800000/document--v1.png')}}"></image>
+
+      <view class="idle-text">
+        <block wx:if="{{loading}}">
+          <text class="prompt-main" style="color: #800000;">AI 正在深度扫描简历...</text>
+          <text class="sub-text">正在匹配 CityU 往届校友成功案例</text>
+        </block>
+        <block wx:elif="{{!hasResume}}">
+          <text class="prompt-main">点击完善 <text class="highlight">个人简历信息</text></text>
+          <text class="sub-text">AI 需根据你的背景产出专属匹配报告</text>
+        </block>
+        <block wx:else>
+          <text class="prompt-main" style="color: #27ae60;">简历已就绪</text>
+          <text class="sub-text">点击下方按钮，开启 AI 深度助攻报告</text>
+        </block>
+      </view>
+    </view>
+
+    <view class="ai-result-card section-card" wx:if="{{aiResult}}">
+      <view class="ai-score-container">
+        <view class="score-ring" style="--percent: {{aiResult.matchRate}}">
+          <view class="score-number">{{aiResult.matchRate}}<text class="percent">%</text></view>
+          <view class="score-label">匹配度</view>
+        </view>
+        <view class="score-info">
+          <view class="evaluation-tag">{{aiResult.matchRate >= 80 ? '极高契合' : '值得尝试'}}</view>
+          <text class="evaluation-desc">基于您的专业背景与岗位画像深度计算</text>
+        </view>
+      </view>
+
+      <view class="radar-container" wx:if="{{aiResult.radarImageUrl}}">
+        <view class="sub-title">📊 维度对标 (Python 引擎深度计算)</view>
+        <image class="radar-img" src="{{aiResult.radarImageUrl}}" mode="widthFix"></image>
+      </view>
+
+      <view class="analysis-box">
+        <view class="sub-title">🤖 优势与短板</view>
+        <text class="analysis-text">{{displayAnalysis}}<text class="cursor" wx:if="{{isTyping}}">|</text></text>
+      </view>
+
+      <view class="tips-box" wx:if="{{displayTips.length > 0}}">
+        <view class="sub-title">💡 面试锦囊</view>
+        <view class="tip-item" wx:for="{{displayTips}}" wx:key="*this">
+          <text class="bullet">•</text>
+          <text class="tip-content">{{item}}</text>
+        </view>
+      </view>
+    </view> 
+  </view>
+
+  <view class="safe-area-spacer"></view>
+
+  <view class="bottom-bar">
+    <button class="ai-btn {{loading ? 'loading' : ''}}" bindtap="startAIAnalysis" disabled="{{loading}}">
+      <image class="ai-icon {{loading ? 'spin' : ''}}" 
+             src="https://img.icons8.com/ios-filled/50/ffffff/sparkling.png"></image>
+      <text class="btn-text">{{loading ? 'AI 正在深度思考...' : '一键 AI 匹配分析'}}</text>
+    </button>
+  </view>
+</view>

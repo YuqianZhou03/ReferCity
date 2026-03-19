@@ -1,0 +1,7 @@
+<view class="launch-container">
+  
+  <view class="loader"></view>
+  
+  <text class="loading-text">正在识别校友身份...</text>
+  <text class="footer-text">ReferCity · 连接城大职场力量</text>
+</view>

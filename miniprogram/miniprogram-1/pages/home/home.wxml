@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="header">
+    <text class="welcome">欢迎回来 CityU 校友</text>
+    <text class="subtitle">今日共有 {{jobList.length}} 个内推机会</text>
+  </view>
+
+  <view class="banner-container">
+    <image class="home-banner" src="/images/homepagephoto.jpg" mode="widthFix"></image>
+  </view>
+
+  <scroll-view scroll-y class="job-list">
+    <block wx:for="{{jobList}}" wx:key="id">
+      <view class="job-card" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="card-left">
+          <text class="job-title">{{item.title}}</text>
+          <view class="company-info">
+            <text class="company-name">{{item.company}}</text>
+          </view>
+        </view>
+        <view class="card-right">
+          <text class="salary">{{item.salary}}</text>
+          <view class="refer-tag">内推</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>

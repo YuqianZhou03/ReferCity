@@ -1,0 +1,154 @@
+/* 全局背景 */
+.container {
+  padding: 30rpx;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+/* ---------------AI 简历助手红色标题框------------------- */
+/* AI 引导卡片保持商务红 */
+.ai-card {
+  background: linear-gradient(135deg, #800000, #b22222);
+  padding: 40rpx;
+  border-radius: 24rpx;
+  color: #fff;
+  margin-bottom: 40rpx;
+  box-shadow: 0 10rpx 30rpx rgba(128, 0, 0, 0.2);
+  text-align: center;
+}
+.ai-title { font-size: 36rpx; font-weight: bold; margin-bottom: 15rpx; display: block; }
+.ai-tips { font-size: 26rpx; opacity: 0.85; margin-bottom: 30rpx; display: block; }
+.ai-mock-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 28rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.5);
+  border-radius: 50rpx;
+  width: 80%;
+}
+/* AI 引导卡片动画设计 /
+
+/* 1. 扫描线：背景透明，仅靠中间一层白光流动 */
+.scanner-line {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 40rpx; /* 增加光束宽度，更有科技感 */
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  z-index: 1;
+}
+/* 2. 触发扫描动画 */
+.ai-card.parsing .scanner-line {
+  animation: scan 2s linear infinite;
+}
+@keyframes scan {
+  0% { top: -20%; }
+  100% { top: 120%; }
+}
+
+/* 3. 解析状态下的卡片微调：保持你的 800000 渐变，仅增加亮度波动 */
+.ai-card {
+  position: relative; /* 必须加这行，否则扫描线会跑出来 */
+  overflow: hidden;   /* 必须加这行 */
+  transition: all 0.3s ease;
+}
+
+.ai-card.parsing {
+  box-shadow: 0 15rpx 40rpx rgba(128, 0, 0, 0.4);
+  filter: brightness(1.05); /* 稍微变亮一点点，暗示正在通电工作 */
+}
+
+/* 4. 按钮在解析时的呼吸感，不改变你的 border 和 background 结构 */
+.ai-card.parsing .ai-mock-btn {
+  animation: breathe 1.5s ease-in-out infinite;
+  border-color: rgba(255, 255, 255, 0.8); /* 呼吸时边框变亮 */
+}
+
+@keyframes breathe {
+  0% { opacity: 0.7; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.7; transform: scale(0.98); }
+}
+
+/* ---------------------- 简历信息输入框 ----------------------- */
+
+/* 表单容器卡片化 */
+.form-group {
+  background: #fff;
+  padding: 40rpx 30rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.input-item {
+  margin-bottom: 40rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 16rpx;
+  display: block;
+  border-left: 6rpx solid #800000;
+  padding-left: 15rpx;
+}
+
+/* 输入框样式重塑 */
+.input-box {
+  background-color: #fdfdfd;
+  border: 2rpx solid #eef0f2;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  transition: all 0.3s;
+}
+
+/* 文本域样式重塑 */
+.area-box {
+  background-color: #fdfdfd;
+  border: 2rpx solid #eef0f2;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  height: 160rpx;
+  line-height: 1.5;
+}
+
+.large {
+  height: 320rpx;
+}
+
+/* 占位符样式 */
+.placeholder-style {
+  color: #bdc3c7;
+  font-size: 26rpx;
+}
+
+/* 底部按钮 */
+.btn-area {
+  margin-top: 60rpx;
+  padding-bottom: 60rpx;
+}
+
+.save-btn {
+  background: #800000;
+  color: #fff;
+  border-radius: 50rpx;
+  font-weight: bold;
+  height: 90rpx;
+  line-height: 90rpx;
+  box-shadow: 0 8rpx 20rpx rgba(128, 0, 0, 0.3);
+}
+
+.save-btn:active {
+  opacity: 0.8;
+  transform: translateY(2rpx);
+}

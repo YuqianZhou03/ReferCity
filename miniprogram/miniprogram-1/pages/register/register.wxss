@@ -1,0 +1,106 @@
+page {
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-section {
+  margin-top: 100rpx;
+  margin-bottom: 80rpx;
+  text-align: center;
+}
+
+.brand-logo {
+  width: 140rpx;
+  height: 140rpx;
+  background-color: #8E1128;
+  color: #ffffff;
+  border-radius: 30rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30rpx;
+  box-shadow: 0 10rpx 20rpx rgba(142, 17, 40, 0.2);
+}
+
+.brand-name {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 2rpx;
+}
+
+.brand-tagline {
+  font-size: 26rpx;
+  color: #888;
+  margin-top: 10rpx;
+}
+
+.form-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 50rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow: 0 4rpx 40rpx rgba(0,0,0,0.05);
+}
+
+.input-group {
+  margin-bottom: 50rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+  padding: 10rpx 0;
+}
+
+.email-input {
+  flex: 1;
+  font-size: 32rpx;
+  height: 60rpx;
+}
+
+.email-suffix {
+  font-size: 28rpx;
+  color: #8E1128;
+  font-weight: 500;
+}
+
+.login-btn {
+  background-color: #8E1128 !important;
+  color: #ffffff !important;
+  width: 100% !important;
+  height: 90rpx;
+  border-radius: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 20rpx rgba(142, 17, 40, 0.3);
+}
+
+.footer-hint {
+  position: fixed;
+  bottom: 60rpx;
+  font-size: 24rpx;
+  color: #bbb;
+}

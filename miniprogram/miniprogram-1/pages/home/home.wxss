@@ -1,0 +1,112 @@
+/* pages/home/home.wxss */
+.container {
+  padding: 30rpx;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40rpx;
+  /* 确保父容器也是居中的，如果想让副标题一起居中，可以加这一行 */
+  text-align: center; 
+}
+
+.welcome {
+  font-size: 52rpx;   /* 从 40rpx 调大到 52rpx，你可以根据感觉继续微调 */
+  font-weight: bold;
+  color: #333;
+  display: block;
+  text-align: center; /* 核心代码：文字居中 */
+  margin-top: 20rpx;  /* 增加一点顶部间距，避免太贴顶 */
+}
+
+.subtitle {
+  font-size: 28rpx;   /* 稍微调大一点点副标题，更协调 */
+  color: #888;
+  margin-top: 15rpx;
+  display: block;     /* 确保副标题也换行显示 */
+  text-align: center; /* 如果主标题居中了，副标题通常也要居中才好看 */
+}
+
+.job-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.job-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+.company-logo {
+  width: 30rpx;
+  height: 30rpx;
+  background: #eee;
+  margin-right: 10rpx;
+  border-radius: 4rpx;
+}
+
+.company-name {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.salary {
+  color: #800000; /* 城大红 */
+  font-weight: bold;
+  font-size: 30rpx;
+  display: block;
+  text-align: right;
+}
+
+.refer-tag {
+  background: rgba(128, 0, 0, 0.1);
+  color: #800000;
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+.post-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #800000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 60rpx;
+  box-shadow: 0 8rpx 20rpx rgba(128,0,0,0.3);
+}
+
+.banner-container {
+  width: 100%;
+  margin-bottom: 30rpx; /* 与下方卡片的间距 */
+  display: flex;
+  justify-content: center;
+}
+
+.home-banner {
+  width: 100%; /* 占据容器全部宽度 */
+  border-radius: 16rpx; /* 这里的圆角要和你的 .job-card 保持一致 */
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05); /* 淡淡的阴影，增加高级感 */
+}

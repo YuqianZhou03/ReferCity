@@ -1,0 +1,181 @@
+.container { 
+  padding: 30rpx; 
+  background-color: #f7f8fa; 
+  min-height: 100vh; 
+  box-sizing: border-box;
+}
+
+.safe-area-spacer { height: 240rpx; }
+
+/* 卡片基础 */
+.section-card {
+  background: #ffffff; border-radius: 20rpx;
+  padding: 30rpx; margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.03);
+}
+
+/* 1. 顶部职位卡片 */
+.job-main-card {
+  background: #ffffff; border-radius: 24rpx;
+  padding: 40rpx; margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.06);
+}
+.title-bar { display: flex; justify-content: space-between; align-items: flex-start; }
+.job-title { font-size: 42rpx; font-weight: bold; color: #222; flex: 1; }
+.company-bar { display: flex; align-items: center; margin: 25rpx 0; }
+.company-logo { width: 34rpx; height: 34rpx; margin-right: 15rpx; }
+.company-name { font-size: 28rpx; color: #666; }
+.salary {
+  margin-left: 30rpx; /* 这里可以自由调整空格的大小 */
+  color: #800000;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.tags-row { display: flex; gap: 15rpx; }
+.tag-refer { 
+  background: #800000; color: #ffffff; font-size: 22rpx; 
+  padding: 8rpx 20rpx; border-radius: 30rpx; 
+  display: flex; align-items: center;
+}
+.mini-icon { width: 30rpx; height: 30rpx; margin-right: 8rpx; }
+.tag-status { background: rgba(128,0,0,0.08); color: #800000; font-size: 22rpx; padding: 8rpx 20rpx; border-radius: 30rpx; }
+
+/* 2. 描述区域 */
+.section-header { display: flex; align-items: center; margin-bottom: 25rpx; border-bottom: 1rpx solid #f0f0f0; padding-bottom: 20rpx; }
+.section-icon { width: 36rpx; height: 36rpx; margin-right: 15rpx; }
+.section-title { font-size: 30rpx; font-weight: bold; color: #333; }
+.description-content { font-size: 28rpx; color: #4a4a4a; line-height: 1.8; white-space: pre-wrap; display: block; }
+
+/* 3. AI 报告区核心样式 */
+.ai-report-wrapper { position: relative; }
+
+.ai-idle-card {
+  background: #ffffff; border: 2rpx dashed #ffd4d4; 
+  border-radius: 24rpx; padding: 60rpx 40rpx;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.ai-icon-large { width: 100rpx; height: 100rpx; margin-bottom: 30rpx; }
+.prompt-main { font-size: 30rpx; font-weight: bold; color: #333; display: block; }
+.highlight { color: #800000; text-decoration: underline; }
+.sub-text { font-size: 24rpx; color: #999; margin-top: 10rpx; display: block; }
+
+/* 升级版得分仪表盘 */
+.ai-score-container {
+  display: flex; align-items: center; padding: 30rpx;
+  background: linear-gradient(135deg, rgba(128,0,0,0.08) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 20rpx; margin-bottom: 40rpx;
+}
+/* 修改后的得分仪表盘 */
+.score-ring {
+  position: relative;
+  width: 150rpx; /* 稍微放大一点点 */
+  height: 150rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* 【核心修复】使用圆锥渐变画出红色进度条 */
+  /* --percent 来自于 WXML 传进来的数值，85% 就是 85% 的红圈 */
+  background: conic-gradient(#800000 calc(var(--percent) * 1%), #f0f0f0 0deg);
+  
+  margin-right: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(128,0,0,0.1);
+}
+
+/* 【核心修复】利用伪元素遮罩，把圆饼变成圆环 */
+.score-ring::after {
+  content: "";
+  position: absolute;
+  width: 130rpx; /* 比外圆小一点，决定了环的粗细 */
+  height: 130rpx;
+  background: #ffffff; /* 内部填充白色 */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* 确保数字和文字在遮罩层之上 */
+.score-number, .score-label {
+  position: relative;
+  z-index: 2;
+}
+
+.score-number {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #800000;
+  line-height: 1;
+}
+
+.evaluation-tag {
+  display: inline-block; background: #800000; color: #fff; font-size: 24rpx;
+  padding: 6rpx 16rpx; border-radius: 8rpx; margin-bottom: 12rpx;
+}
+.evaluation-desc { font-size: 24rpx; color: #666; line-height: 1.4; display: block; }
+
+/* --- 四维度雷达图 WXSS --- */
+
+.radar-container {
+  margin: 30rpx 0;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 16rpx; /* 让容器圆润一点，匹配你的卡片风格 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 图片居中 */
+}
+
+.radar-img {
+  width: 100%;       /* 占满容器宽度 */
+  height: auto;      /* 高度自适应，防止图片变形 */
+  margin-top: 20rpx;
+  /* 可以加一个微弱的呼吸感或淡入动画，增加 AI 生成的感觉 */
+  animation: fadeIn 1s ease-in; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 原有的 sub-title 保持不动，它是通用的 */
+.sub-title {
+  align-self: flex-start; /* 标题靠左对齐 */
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #800000;
+  margin-bottom: 10rpx;
+}
+
+/* -------------优势与短板 + 面试集锦------------ /
+
+/* 结果细节样式 */
+.sub-title { font-weight: bold; color: #222; margin-bottom: 20rpx; font-size: 30rpx; display: flex; align-items: center; }
+.analysis-box { background: rgba(128,0,0,0.02); padding: 25rpx; border-radius: 12rpx; margin-bottom: 30rpx; }
+.analysis-text { font-size: 28rpx; color: #444; line-height: 1.7; display: block; }
+.tip-item { display: flex; margin-bottom: 15rpx; }
+.bullet { color: #800000; font-weight: bold; margin-right: 15rpx; }
+.tip-content { font-size: 28rpx; color: #555; line-height: 1.6; }
+
+/* 4. 底部按钮样式 */
+.bottom-bar { 
+  position: fixed; bottom: 0; left: 0; right: 0; 
+  padding: 30rpx 40rpx calc(40rpx + env(safe-area-inset-bottom)); 
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+  border-top: 1rpx solid #f0f0f0; z-index: 100;
+}
+.ai-btn {
+  background: linear-gradient(90deg, #333 0%, #800000 100%);
+  color: #fff; border-radius: 50rpx; font-weight: bold; font-size: 32rpx;
+  height: 100rpx; display: flex; align-items: center; justify-content: center;
+  width: 100% !important; border: none;
+}
+.btn-text {
+  color: #ffffff;
+  text-shadow: 0 0 8rpx rgba(255, 255, 255, 0.3); /* 给文字加一点微光 */
+  letter-spacing: 2rpx; /* 字间距拉开一点，更有高级感 */
+}
+.ai-icon { width: 44rpx; height: 44rpx; margin-right: 16rpx; }
+.spin { animation: spinIcon 1.2s linear infinite; }
+@keyframes spinIcon { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

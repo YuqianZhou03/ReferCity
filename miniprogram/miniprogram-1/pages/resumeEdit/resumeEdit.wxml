@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="ai-card {{isParsing ? 'parsing' : ''}}">
+    <view class="ai-title">🤖 AI 简历助手</view>
+    <text class="ai-tips">上传PDF简历, 一键即可AI匹配简历信息</text>
+    
+    <button class="ai-mock-btn" bindtap="uploadResume" loading="{{isParsing}}" disabled="{{isParsing}}">
+      {{isParsing ? 'AI 正在深度解析...' : '上传PDF文件'}}
+    </button>
+
+    <view wx:if="{{isParsing}}" class="scanner-line"></view>
+  </view>
+
+  <view class="form-group">
+    <view class="input-item">
+      <text class="label">姓名</text>
+      <input class="input-box" placeholder-class="placeholder-style" placeholder="请输入您的真实姓名" value="{{resumeData.name}}" bindinput="onInput" data-field="name" />
+    </view>
+
+    <view class="input-item">
+      <text class="label">毕业院校与专业</text>
+      <input class="input-box" placeholder-class="placeholder-style" placeholder="例如：香港城市大学 - 计算机科学" value="{{resumeData.edu}}" bindinput="onInput" data-field="edu" />
+    </view>
+
+    <view class="input-item">
+      <text class="label">核心技能</text>
+      <textarea class="area-box" placeholder-class="placeholder-style" placeholder="列出你的核心技术栈，用逗号分隔" value="{{resumeData.skills}}" bindinput="onInput" data-field="skills"></textarea>
+    </view>
+
+    <view class="input-item" style="border:none">
+      <text class="label">项目与实习经历 (AI 已深度解析)</text>
+      <textarea 
+        class="area-box large" 
+        placeholder-class="placeholder-style" 
+        placeholder="描述项目背景、角色及产出..." 
+        value="{{resumeData.experience}}" 
+        bindinput="onInput" 
+        data-field="experience"
+        maxlength="-1" 
+        auto-height="true"
+        show-confirm-bar="false"
+        cursor-spacing="20"
+      ></textarea>
+    </view>
+  </view>
+
+  <view class="btn-area">
+    <button class="save-btn" bindtap="saveResume">同步至云端</button>
+  </view>
+</view>
