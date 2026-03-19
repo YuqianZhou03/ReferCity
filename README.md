@@ -13,6 +13,16 @@
 - **AI 简历对齐**: 并非通用的修改建议，而是基于**目标岗位真实面经库**的深度比对。
 - **数据洞察**: 自动提取面试高频考点，量化求职成功率。
 
+## 📺 项目演示 (Demo)
+
+### 1. 快捷登录与身份初始化：通过微信官方接口换取 `openid` 实现**无感登录**
+
+<div align="center">
+  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="60%" alt="ReferCity Demo">
+</div>
+
+> **演示路径**：微信一键授权登录 -> 完善个人基本信息 -> 进入核心功能区。
+
 ---
 
 ## 🏗️ 2. 技术架构图 (System Architecture)
@@ -26,6 +36,7 @@ ReferCity 采用典型的**工业级 AI 应用架构**，充分体现 BDA 对数
 - **数据层 (Data Layer)**:
   - **MySQL**: 存储用户信息、职位数据及内推状态。
   - **Vector Storage**: 存储结构化后的面经嵌入向量，支持语义搜索。
+
 ---
 
 ## 🚀 3. ReferCity 特色功能：AI 深度职场对标 (Core Features)
