@@ -14,8 +14,9 @@
 - **数据洞察**: 自动提取面试高频考点，量化求职成功率。
 
 ## 📺 项目演示 (Demo)
+
 <div align="center">
-  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="100%" alt="ReferCity Demo">
+  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="60%" alt="ReferCity Demo">
 </div>
 
 > **说明**：演示展示了从用户上传简历到 RAG 引擎检索面经并生成 AI 匹配报告的完整闭环。
