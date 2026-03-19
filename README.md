@@ -13,6 +13,16 @@
 - **AI 简历对齐**: 并非通用的修改建议，而是基于**目标岗位真实面经库**的深度比对。
 - **数据洞察**: 自动提取面试高频考点，量化求职成功率。
 
+## 📺 项目演示 (Project Demo)
+
+<div align="center">
+  <video src="assets/demo.mp4" width="100%" controls title="ReferCity Demo">
+    您的浏览器不支持视频播放，请直接下载查看：[下载视频](assets/demo.mp4)
+  </video>
+</div>
+
+> **说明**：演示展示了从用户上传简历到 RAG 引擎检索面经并生成 AI 匹配报告的完整闭环。
+
 ---
 
 ## 🏗️ 2. 技术架构图 (System Architecture)
