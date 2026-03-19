@@ -1,24 +1,28 @@
-# Compiled class file
+### --- Java 相关 (忽略编译产物) ---
+target/
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+.mvn/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+### --- IDE 相关 (忽略本地编辑器配置) ---
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+
+### --- Python 相关 (最关键的部分) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.env
+
+# 核心：绝对不要上传本地生成的向量数据库文件夹
+# 让用户拉取代码后运行你的 ingest.py 自己生成
+**/my_vectordb/
+
+### --- 系统日志 ---
+*.log
