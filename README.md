@@ -15,13 +15,22 @@
 
 ## 📺 项目演示 (Demo)
 
-### 1. 快捷登录与身份初始化：通过微信官方接口换取 `openid` 实现**无感登录**
+1. 快捷登录与身份初始化 - 通过微信官方接口换取 `openid` 实现**无感登录**
 
 <div align="center">
-  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="60%" alt="ReferCity Demo">
+  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="30%" alt="ReferCity Demo">
 </div>
 
-> **演示路径**：微信一键授权登录 -> 完善个人基本信息 -> 进入核心功能区。
+2. 首页 - 内推信息聚合中心
+
+<div align="center">
+  <img src="assets/ReferCity_display-ezgif.com-video-to-gif-converter.gif" width="30%" alt="ReferCity Demo">
+</div>
+
+3. 简历 AI 提取PDF文件与数据持久化
+
+4. 简历 AI 分析及评分 - RAG 检索增强生成
+
 
 ---
 
