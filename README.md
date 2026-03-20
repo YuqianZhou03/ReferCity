@@ -30,7 +30,7 @@
 3. 简历 AI 提取PDF文件与数据持久化
 
 <div align="center">
-  <img src="assets/pdf_display.gif" width="30%" alt="ReferCity Demo">
+  <img src="assets/pdf_dispaly.gif" width="30%" alt="ReferCity Demo">
 </div>
 
 4. 简历 AI 分析及评分 - RAG 检索增强生成
